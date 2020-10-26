@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Retângulo</title>
+        
+</head>
+
+
+<body>
+
+	<script>
+		
+		function Retangulo(x,y){
+			this.base = x;
+			this.altura = y;
+
+			this.area = function(){
+				return (x*y);
+
+				
+			}
+		}
+
+	var x = parseInt(prompt("Digite o valor da base: "));
+	var y = parseInt(prompt("Digite o valor da altura: "));
+
+	var meuRet = new Retangulo(x,y);
+
+	alert ("O valor da área é " + meuRet.area());
+	</script>
+</body>
+
+</html>

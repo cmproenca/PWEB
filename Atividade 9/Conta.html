@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Banco</title>
+        
+</head>
+
+<body>
+
+	<script>
+		
+		function Conta(){
+			var nome;
+			var banco;
+			var num;
+			var saldo;
+
+			this.getNome = function () {
+				return nome;
+			};
+
+			this.setNome = function (value) {
+				nome = value;
+			};
+
+			this.getBanco = function () {
+				return banco;
+			};
+
+			this.setBanco = function (value) {
+				banco = value;
+			};
+
+			this.getNum = function () {
+				return num;
+			};
+
+			this.setNum = function (value) {
+				num = value;
+			};
+
+			this.getSaldo = function () {
+				return saldo;
+			};
+
+			this.setSaldo = function (value) {
+				saldo = value;
+			};
+
+		}
+
+	function Corrente() {
+			var saldoEspecial;
+			this.getSaldoEsp = function () {
+				return saldoEspecial;
+			};
+			this.setSaldoEsp = function (value) {
+				saldoEspecial = value;
+			};
+		}
+
+	function Poupança() {
+			var juros;
+			var dataVenc;
+
+			this.getJuros = function () {
+				return juros;
+			};
+			this.setJuros = function (value) {
+				juros = value;
+			};
+
+			this.getDataVenc = function () {
+				return dataVenc;
+			};
+			this.setDataVenc = function (value) {
+				dataVenc = value;
+			};
+		}
+
+		Corrente.prototype = new Conta();
+		Poupança.prototype = new Conta();
+
+		objCorrente = new Corrente();
+		objCorrente.setNome('Caio Matheus de Proença');
+		objCorrente.setBanco('Santander');
+		objCorrente.setNum(999);
+		objCorrente.setSaldo(9500.00);
+		objCorrente.setSaldoEsp(10000);
+
+		objPoupança = new Poupança();
+		objPoupança.setNome('Caio Matheus de Proença');
+		objPoupança.setBanco('Bradesco');
+		objPoupança.setNum(888);
+		objPoupança.setSaldo(8500.00);
+		objPoupança.setJuros(15);
+		objPoupança.setDataVenc('19/11/2023');
+
+		alert('Nome: ' + objCorrente.getNome() + '\n Banco: ' + objCorrente.getBanco() +'\n Número da Conta: ' +  objCorrente.getNum() + '\n Saldo: R$ ' + objCorrente.getSaldo() + '\n Saldo Especial: R$ ' + objCorrente.getSaldoEsp());
+
+		alert('Nome: ' + objPoupança.getNome() + '\n Banco: ' + objPoupança.getBanco() +'\n Número da Conta: ' +  objPoupança.getNum() + '\n Saldo: R$ ' + objPoupança.getSaldo() + '\n Juros: ' + objPoupança.getJuros() + '% \n Data de Vencimento: ' + objPoupança.getDataVenc());
+
+
+
+	</script>
+</body>
+
+</html>
