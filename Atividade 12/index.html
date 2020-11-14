@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <style>
+
+  input[type=text], textarea{
+    width:20%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.2s;
+  }
+  
+  input[type=text]:focus,textarea:focus{
+    border-color: #800080;
+    box-shadow:0 0 8px 0 #800080;
+  }
+
+  body{
+    background: #13111b; 
+    color: white; 
+    font-family: Arial;
+  }
+
+  .button {
+  background-color: #800080;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+	}
+    </style>
+</head>
+
+<body>
+    <form action="agradecimentos.html" method="post" id="formulario1" onsubmit="return validarDados();">
+
+        <div id="principal" width=200 heigth=200 align=center>
+        	<h1>Formulário Principal</h1>
+        	______________________________________
+            <br><br>Nome <br>
+            <input type="text" id="idNome" size="52" maxlength="150" placeholder="Digite seu nome."><br>
+            Email <br>
+            <input type="text" id="idEmail" size="52" maxlength="150" placeholder="Digite seu email."> <br>
+            Comentário <br>
+            <textarea name="idComentario" cols="50" rows="8" id="idComentario" value="input"></textarea>
+            <br> <br>
+            <h3>Pesquisa:</h3>
+            <h4>Primeira vez na página?</h4>
+            <input type="radio" id="radioSim" value="off" name="radioSim" ">Sim 
+            <input type="radio" id="radioNo" value="radioNo"">Não
+            <br>
+            <br>
+            <br>
+            <input class="button" name="Submit" type="submit" form="formulario1" value="Enviar">
+            <input class="button" name="Reset" type="reset" form="formulario1" value="Limpar">
+        </div>
+        </div>
+    </form>
+
+<script>
+
+    function validarDados() {
+    	const radioNo = document.getElementById("radioNo");
+    	const radioSim = document.getElementById("radioSim");
+            
+            if (document.forms.formulario1.elements.idNome.value == "" || document.forms.formulario1.elements.idNome.value.length < 10) {
+                alert("Preencha campo NOME corretamente!");
+                document.forms.formulario1.elements["idNome"].focus();
+                return false;
+            };
+
+            if (document.forms.formulario1.elements["idEmail"].value == "" || document.forms.formulario1.elements["idEmail"].value.indexOf('@') == -1 || document.forms.formulario1.elements["idEmail"].value.indexOf('.') == -1) {
+                alert("Preencha campo E-MAIL corretamente!");
+                document.forms.formulario1.elements.idEmail.focus();
+               return false;
+            }
+
+            if (document.forms.formulario1.elements.idComentario.value == "" || document.forms.formulario1.elements.idComentario.value.length < 20) {
+                alert("É necessario preencher o campo COMENTÁRIO pelo menos 20 caracteres!");
+                document.getElementById("idComentario").focus();
+                return false;
+            }
+
+            if (radioNo.checked == false && radioSim.checked == false) {
+            	alert("É necessário selecionar uma opção sobre sua visita.");
+            	radioSim.focus();
+            	return false;
+            }
+
+            if(radioSim.checked == true){
+            	radioNo.checked = false;
+            	alert("Volte sempre à esta página!");
+            }else if(radioNo.checked == true){
+            	radioSim.checked = false;
+				alert("Que bom que você voltou a visitar esta página!");
+            }
+
+            return true;
+        }
+
+    </script>
+</body>
+
+</html>
