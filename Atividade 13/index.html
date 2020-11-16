@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Cursos</title>
+    <style>
+
+  select{
+    width:20%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.2s;
+  }
+  
+  select:focus{
+    border-color: #800080;
+    box-shadow:0 0 8px 0 #800080;
+  }
+
+  body{
+    background: #13111b; 
+    color: white; 
+    font-family: Arial;
+    }
+
+    </style>
+</head>
+
+<body>
+ 
+        <div id="principal" width=200 heigth=200 align=center>
+        	<h1>FATEC Sorocaba</h1>
+        	___________________________________________
+            <br><br>
+            <h3>Deseja saber sobre qual curso?</h3>
+            <br>
+            <select id="seletor" nome="chapeuseletor" onchange="redirect(this)">
+            <option value="curso_ads.asp">Análise e Desenvolvimento de Sistemas</option>
+            <option value="curso_ea.asp">Eletrônica Automotiva</option>
+            <option value="curso_fm.asp">Fabricação Mecânica</option>
+            <option value="curso_ead-ge.asp">Gestão Empresarial - EAD</option>
+            <option value="curso_gq.asp">Gestão de Qualidade</option>
+            <option value="curso_log.asp">Logística</option>
+            <option value="curso_ma.asp">Manufatura Avançada</option>
+            <option value="curso_pol.asp">Polímeros</option>
+            <option value="curso_pm.asp">Processos Metalúrgicos</option>
+            <option value="curso_proj.asp">Projetos Mecânicos</option>
+            <option value="curso_sb.asp">Sistemas Biomédicos</option>
+            </select>
+         </div>
+        </div>
+
+  <script>
+    var fatec = 'http://www.fatecsorocaba.edu.br/';
+    
+    function redirect(curso){
+     if(window.confirm('Você será redirecionado para a página do curso, ok?'))
+      {
+        window.open(fatec + curso.value, 'Curso','width=600, height=300');
+      }else{
+        return;
+      }
+  }
+
+
+  </script>
+
+</body>
+
+</html>
